@@ -1,44 +1,44 @@
 ﻿Unity Debug Logger
-?쒓뎅??/ English
+한국어 / English
 
 ![Output Example](result.jpg)
 
 Repository: https://github.com/kimbabmon9356/unity-debug-logger.git
 
-?뙋 ?쒓뎅??
+🌐 한국어
 
-?뱼 ?뚭컻
-Unity 肄섏넄 濡쒓렇瑜?梨꾨꼸 湲곕컲?쇰줈 蹂닿린 醫뗪쾶 異쒕젰?섍린 ?꾪븳 寃쎈웾 ?붾쾭洹?濡쒓굅?낅땲??
-梨꾨꼸蹂??대쫫/?됱긽/?대え吏瑜??ㅼ젙?????덇퀬, 濡쒓렇 ?욎뿉 ?묐몢/?묐?瑜?遺숈뿬 援щ텇?깆쓣 ?믪씪 ???덉뒿?덈떎.
+📢 소개
+Unity 콘솔 로그를 채널 기반으로 보기 좋게 출력하기 위한 경량 디버그 로거입니다.
+채널별 이름/색상/이모지를 설정할 수 있고, 로그 앞에 접두/접미를 붙여 구분성을 높일 수 있습니다.
 
-???덊룷吏?좊━???ㅼ쓬???먮룞?뷀빀?덈떎.
-- LogChannelAsset ?앹꽦 (?놁쓣 寃쎌슦 ?먮룞 ?앹꽦)
-- Channel enum ?먮룞 ?앹꽦 (梨꾨꼸 ??????먮룞 媛깆떊)
-- ENABLE_GAME_LOG ?щ낵 ?먮룞 愿由?(媛쒕컻 鍮뚮뱶?먯꽌 ?쒖꽦??
+이 레포지토리는 다음을 자동화합니다.
+- LogChannelAsset 생성 (없을 경우 자동 생성)
+- Channel enum 자동 생성 (채널 저장 시 자동 갱신)
+- ENABLE_GAME_LOG 심볼 자동 관리 (개발 빌드에서 활성화)
 
-?슙 ?ㅼ튂
-1. ???덊룷吏?좊━瑜??대줎?⑸땲??
-2. Script ?대뜑瑜?Unity ?꾨줈?앺듃??Assets ?꾨옒濡?蹂듭궗?⑸땲??
-3. Unity濡??뚯븘?ㅻ㈃ LogChannelAsset???먮룞 ?앹꽦?⑸땲??
-4. LogChannelAsset?먯꽌 梨꾨꼸 紐⑸줉???섏젙?섍퀬 ???Ctrl+S)?섎㈃ Channel enum???먮룞 媛깆떊?⑸땲??
+🚧 설치
+1. 이 레포지토리를 클론합니다.
+2. Script 폴더를 Unity 프로젝트의 Assets 아래로 복사합니다.
+3. Unity로 돌아오면 LogChannelAsset이 자동 생성됩니다.
+4. LogChannelAsset에서 채널 목록을 수정하고 저장(Ctrl+S)하면 Channel enum이 자동 갱신됩니다.
 
-?뱶 ?ы븿???ㅽ겕由쏀듃
-- Console.cs : 梨꾨꼸 湲곕컲 濡쒓렇 異쒕젰 API
-- LogFormatter.cs : 梨꾨꼸 prefix/suffix, ?됱긽, ?대え吏 ?щ㎎??
-- LogEntry.cs : 濡쒓렇 ?곗씠??援ъ“泥?
-- LogChannelAsset.cs : 梨꾨꼸 ?ㅼ젙 ScriptableObject
-- LogChannelConfig.cs : 梨꾨꼸蹂??ㅼ젙 ?곗씠??
-- Channel.cs : ?먮룞 ?앹꽦 梨꾨꼸 enum
+📜 포함된 스크립트
+- Console.cs : 채널 기반 로그 출력 API
+- LogFormatter.cs : 채널 prefix/suffix, 색상, 이모지 포맷팅
+- LogEntry.cs : 로그 데이터 구조체
+- LogChannelAsset.cs : 채널 설정 ScriptableObject
+- LogChannelConfig.cs : 채널별 설정 데이터
+- Channel.cs : 자동 생성 채널 enum
 
 Editor
-- LogChannelAssetAutoCreator.cs : LogChannelAsset ?먮룞 ?앹꽦
-- LogChannelGenerator.cs : Channel enum ?먮룞 ?앹꽦
-- LogChannelConfigDrawer.cs : 梨꾨꼸 ?ㅼ젙 而ㅼ뒪? ?쒕줈???대え吏 ?좏깮 ?ы븿)
-- LogEmojiPickerPopup.cs / EmojiDatabaseBuilder.cs : ?대え吏 ?좏깮湲?吏??
-- LoggerSymbolSetup.cs : ENABLE_GAME_LOG ?щ낵 ?먮룞 ?ㅼ젙
+- LogChannelAssetAutoCreator.cs : LogChannelAsset 자동 생성
+- LogChannelGenerator.cs : Channel enum 자동 생성
+- LogChannelConfigDrawer.cs : 채널 설정 커스텀 드로어(이모지 선택 포함)
+- LogEmojiPickerPopup.cs / EmojiDatabaseBuilder.cs : 이모지 선택기 지원
+- LoggerSymbolSetup.cs : ENABLE_GAME_LOG 심볼 자동 설정
 
-?? 媛꾨떒 ?ъ슜踰?
-1) 湲곕낯 濡쒓렇
+🚀 간단 사용법
+1) 기본 로그
 ```csharp
 using UnityEngine;
 
@@ -47,7 +47,7 @@ Console.LogWarning("Something looks suspicious");
 Console.LogError("Something went wrong");
 ```
 
-2) 梨꾨꼸 濡쒓렇
+2) 채널 로그
 ```csharp
 using UnityEngine;
 
@@ -56,7 +56,7 @@ Console.Log(Channel.Monster, "Status Initialized");
 Console.Log(Channel.Map, "Collider Initialized", "#64D46A");
 ```
 
-3) ?덉쇅 濡쒓렇
+3) 예외 로그
 ```csharp
 try
 {
@@ -68,23 +68,23 @@ catch (System.Exception e)
 }
 ```
 
-?뼹截?異쒕젰 ?덉떆
-?꾨옒 ?대?吏???ㅼ젣 肄섏넄 異쒕젰 ?덉떆?낅땲??
+🖼️ 출력 예시
+아래 이미지는 실제 콘솔 출력 예시입니다.
 
 ![Unity Debug Logger Example](result.jpg)
 
-?숋툘 李멸퀬?ы빆
-- ?遺遺꾩쓽 濡쒓렇 硫붿꽌?쒕뒗 ENABLE_GAME_LOG ?щ낵???덉쓣 ?뚮쭔 異쒕젰?⑸땲??
-- ?쇰컲 鍮뚮뱶?먯꽌???щ낵???쒓굅?섏뼱 濡쒓렇 ?몄텧???쒖쇅?????덉뒿?덈떎.
-- 梨꾨꼸 ?대쫫? enum ?앹꽦???꾪빐 ?곷Ц/?レ옄/?몃뜑?ㅼ퐫??_) ?ъ슜??沅뚯옣?⑸땲??
-- Channel.cs???먮룞 ?앹꽦 ?뚯씪?대?濡??섎룞 ?섏젙?섏? ?딅뒗 寃껋쓣 沅뚯옣?⑸땲??
-- ?대떦 README.md ??AI濡??명빐 ?묒꽦?섏뿀?듬땲??
+⚙️ 참고사항
+- 대부분의 로그 메서드는 ENABLE_GAME_LOG 심볼이 있을 때만 출력됩니다.
+- 일반 빌드에서는 심볼이 제거되어 로그 호출이 제외될 수 있습니다.
+- 채널 이름은 enum 생성을 위해 영문/숫자/언더스코어(_) 사용을 권장합니다.
+- Channel.cs는 자동 생성 파일이므로 수동 수정하지 않는 것을 권장합니다.
+- README 인코딩은 UTF-8 기준입니다.
 
 ---
 
-?뙋 English
+🌐 English
 
-?뱼 Overview
+📢 Overview
 A lightweight Unity debug logger that formats console output by channel.
 You can configure channel name/color/emoji and add a customizable prefix/suffix for clearer logs.
 
@@ -93,13 +93,13 @@ This repository also automates:
 - Auto-generation of Channel enum (on asset save)
 - Auto-management of ENABLE_GAME_LOG define symbol (enabled for development)
 
-?슙 Installation
+🚧 Installation
 1. Clone this repository.
 2. Copy the Script folder under your Unity project's Assets.
 3. Return to Unity and LogChannelAsset will be auto-created.
 4. Edit channel entries in LogChannelAsset and save (Ctrl+S) to refresh Channel enum automatically.
 
-?뱶 Included Scripts
+📜 Included Scripts
 - Console.cs : Channel-based logging API
 - LogFormatter.cs : Prefix/suffix, color, emoji formatting
 - LogEntry.cs : Log data struct
@@ -114,7 +114,7 @@ Editor
 - LogEmojiPickerPopup.cs / EmojiDatabaseBuilder.cs : Emoji picker support
 - LoggerSymbolSetup.cs : Auto-sets ENABLE_GAME_LOG define symbol
 
-?? Quick Usage
+🚀 Quick Usage
 1) Basic logging
 ```csharp
 using UnityEngine;
@@ -145,13 +145,14 @@ catch (System.Exception e)
 }
 ```
 
-?뼹截?Output Example
+🖼️ Output Example
 The image below shows a sample console output:
 
 ![Unity Debug Logger Example](result.jpg)
 
-?숋툘 Notes
+⚙️ Notes
 - Most logging methods are compiled only when ENABLE_GAME_LOG is defined.
 - In non-development builds, the symbol may be removed and log calls can be excluded.
 - Use alphanumeric + underscore channel names for safe enum generation.
 - Channel.cs is auto-generated, so avoid manual edits.
+- README encoding is UTF-8.
